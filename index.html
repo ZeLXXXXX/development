@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TyphoonReady PH — Typhoon preparedness, flood awareness, and disaster readiness for the Philippines. SDG 13 Climate Action." />
+  <title>TyphoonReady PH — Home</title>
+<link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌀</text></svg>" />
+</head>
+<body>
+
+  <!-- ========================================================
+       NAVIGATION TOP BAR
+       ======================================================== -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand" aria-label="TyphoonReady PH Home">
+        <div class="nav-brand-icon">🌀</div>
+        <span class="nav-brand-text">Typhoon<span>Ready</span> PH</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="features.html">Tools</a></li>
+        <li><a href="login.html">Portal</a></li>
+        <li><a href="contact.html" class="nav-cta">Emergency Contacts</a></li>
+      </ul>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Features Menu -->
+  <div class="mobile-menu" id="mobile-menu" role="menu">
+    <a href="index.html" role="menuitem">Home</a>
+    <a href="about.html" role="menuitem">About</a>
+    <a href="features.html" role="menuitem">Tools</a>
+    <a href="login.html" role="menuitem">Portal</a>
+    <a href="contact.html" role="menuitem">Emergency Contacts</a>
+  </div>
+
+  <main class="page-wrap">
+
+    <!-- ========================================================
+         FRONT PAGE LAYOUT SECTION
+         ======================================================== -->
+    <section class="hero" aria-label="Hero section">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-content">
+
+        <!-- Left Part Main Content -->
+        <div class="hero-left anim-in anim-in-1">
+          <div class="hero-eyebrow">
+            <span>🇵🇭</span> SDG 13 — Climate Action
+          </div>
+          <h1 class="hero-title">
+            <span class="block-text">Be Ready.</span>
+            <span class="block-text">Stay <span class="accent">Safe.</span></span>
+            <span class="block-text">Save Lives.</span>
+          </h1>
+          <p class="hero-desc">
+            The Philippines faces 20 typhoons annually. Preparedness is not optional — it saves lives.
+            Access real-time risk tools, evacuation guides, and community resources to protect your family.
+          </p>
+          <div class="hero-actions">
+            <a href="login.html" class="btn btn-primary btn-lg">
+              <span>🔐</span> Sign In / Sign Up
+            </a>
+            <a href="about.html" class="btn btn-outline">
+              Learn More
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stat-card">
+              <div class="hero-stat-num">20+</div>
+              <div class="hero-stat-label">Typhoons per year hit the Philippines</div>
+            </div>
+            <div class="hero-stat-card">
+              <div class="hero-stat-num">#1</div>
+              <div class="hero-stat-label">Most disaster-exposed country globally</div>
+            </div>
+            <div class="hero-stat-card">
+              <div class="hero-stat-num">7,641</div>
+              <div class="hero-stat-label">Islands at risk of flooding &amp; storm surge</div>
+            </div>
+            <div class="hero-stat-card">
+              <div class="hero-stat-num">₱100B</div>
+              <div class="hero-stat-label">Estimated Average annual economic loss from disasters</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Part Content -->
+        <div class="hero-right anim-in anim-in-2">
+          <div class="warning-section">
+            <div class="warning-section-title">⚡ Commonly Typhoon Signals per City </div>
+            <div class="warning-cards">
+              <div class="warning-card level-3" role="article">
+                <div class="warning-icon">🌀</div>
+                <div class="warning-info">
+                  <div class="warning-name">Signal No. 3 — HABAGAT</div>
+                  <div class="warning-region">Northern Luzon, Cagayan Valley, Isabela</div>
+                </div>
+                <span class="warning-badge">ACTIVE</span>
+              </div>
+              <div class="warning-card level-2" role="article">
+                <div class="warning-icon">🌧️</div>
+                <div class="warning-info">
+                  <div class="warning-name">Signal No. 2 — Eastern Visayas</div>
+                  <div class="warning-region">Samar, Northern Leyte, Biliran</div>
+                </div>
+                <span class="warning-badge">WATCH</span>
+              </div>
+              <div class="warning-card level-2" role="article">
+                <div class="warning-icon">⚡</div>
+                <div class="warning-info">
+                  <div class="warning-name">Flash Flood Warning</div>
+                  <div class="warning-region">Metro Manila, Rizal, Cavite</div>
+                </div>
+                <span class="warning-badge">WARNING</span>
+              </div>
+              <div class="warning-card level-1" role="article">
+                <div class="warning-icon">✅</div>
+                <div class="warning-info">
+                  <div class="warning-name">All Clear — Mindanao</div>
+                  <div class="warning-region">Davao Region, Northern Mindanao</div>
+                </div>
+                <span class="warning-badge">CLEAR</span>
+              </div>
+            </div>
+            <div style="margin-top:1.2rem; padding-top:1.2rem; border-top:1px solid var(--slate-700);">
+              <p style="font-size:0.8rem;color:var(--slate-500);line-height:1.5;">
+                ⚠️ Signal indicators are for educational illustration and are not accurate. For real-time warnings, visit
+                <strong style="color:var(--orange-400)">pagasa.dost.gov.ph</strong> or call NDRRMC Hotline 8-1-1.
+              </p>
+            </div>
+          </div>
+
+          <div style="margin-top:1rem;background:rgba(242,108,0,0.08);border:1px solid rgba(242,108,0,0.2);border-radius:var(--radius-lg);padding:1.2rem;display:flex;gap:0.75rem;align-items:flex-start;">
+            <span style="font-size:1.5rem;flex-shrink:0">🌍</span>
+            <div>
+              <div style="font-family:var(--font-display);font-weight:800;font-size:0.9rem;text-transform:uppercase;color:var(--orange-400);margin-bottom:0.2rem;">SDG Goal 13</div>
+              <div style="font-size:0.82rem;color:var(--slate-400);line-height:1.5;">
+                Take urgent action to combat climate change and its impacts. The Philippines is among the world's most climate-vulnerable nations — preparedness is our frontline defense.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         EVERYTHING YOU NEED TO PREPARE SECTION
+         ======================================================== -->
+    <section class="section" aria-labelledby="features-heading">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-eyebrow">⚡ Platform Tools</div>
+          <h2 class="section-title" id="features-heading">Everything You Need to <span class="accent">Prepare</span></h2>
+          <p class="section-subtitle">Practical, data-driven tools designed specifically for Filipino households and communities.</p>
+        </div>
+        <div class="cards-3">
+          <div class="card anim-in anim-in-1">
+            <div class="card-icon">🎒</div>
+            <h3 class="card-title">Go-Bag Checklist</h3>
+            <p class="card-text">Interactive emergency supply tracker. Pack the right items, track your readiness percentage, and never be caught unprepared when a typhoon is approaching.</p>
+            <a href="features.html" class="btn btn-ghost btn-sm" style="margin-top:1rem">Open Tool →</a>
+          </div>
+          <div class="card anim-in anim-in-2">
+            <div class="card-icon">🌊</div>
+            <h3 class="card-title">Flood Depth Simulator</h3>
+            <p class="card-text">Understand exactly how dangerous floodwaters are for your vehicle. Our depth simulator shows vehicle survivability in real-time as water levels rise.</p>
+            <a href="features.html" class="btn btn-ghost btn-sm" style="margin-top:1rem">Open Tool →</a>
+          </div>
+          <div class="card anim-in anim-in-3">
+            <div class="card-icon">🏫</div>
+            <h3 class="card-title">Evacuation Center Finder</h3>
+            <p class="card-text">Find the nearest evacuation centers by district. Check real-time capacity and availability status so you can move quickly when it matters most.</p>
+            <a href="features.html" class="btn btn-ghost btn-sm" style="margin-top:1rem">Open Tool →</a>
+          </div>  
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         WHY PREPAREDNESS MATTERS SECTION
+         ======================================================== -->
+    <section class="section" style="background:var(--slate-800);border-top:1px solid var(--slate-700);border-bottom:1px solid var(--slate-700);" aria-labelledby="community-heading">
+      <div class="section-inner">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+          <div>
+            <div class="section-eyebrow">🇵🇭 Philippine Context</div>
+            <h2 class="section-title" id="community-heading" style="text-align:left">Why Preparedness <span class="accent">Matters Here</span></h2>
+            <p style="color:var(--slate-400);margin-top:1rem;line-height:1.7;font-size:0.95rem;">
+              The Philippines occupies the most disaster-exposed position on Earth, situated along the Pacific Typhoon Belt, within the Ring of Fire, and exposed to three active monsoon systems.
+              With over 110 million people at risk, community-level preparedness is the single most effective tool against typhoon deaths.
+            </p>
+            <p style="color:var(--slate-400);margin-top:1rem;line-height:1.7;font-size:0.95rem;">
+              Super Typhoon Haiyan (Yolanda, 2013) killed over 6,300 Filipinos — and most deaths were preventable with proper evacuation protocols. TyphoonReady PH exists to fill that education gap.
+            </p>
+          </div>
+          <div>
+            <div style="display:flex;flex-direction:column;gap:1rem;">
+              <div style="background:var(--slate-700);border-radius:var(--radius-lg);padding:1.4rem;border-left:4px solid var(--orange-500);">
+                <div style="font-family:var(--font-display);font-weight:800;font-size:1rem;text-transform:uppercase;color:var(--white);margin-bottom:0.4rem;">⚡ PAGASA Warning System</div>
+                <p style="font-size:0.88rem;color:var(--slate-400);line-height:1.5;">The Philippines uses a 1–5 Typhoon Signal system. Signal No. 1 means gusts of 30–60 km/h. Signal No. 5 (the highest) means gusts exceed 220 km/h — expect catastrophic damage.</p>
+              </div>
+              <div style="background:var(--slate-700);border-radius:var(--radius-lg);padding:1.4rem;border-left:4px solid var(--blue-400);">
+                <div style="font-family:var(--font-display);font-weight:800;font-size:1rem;text-transform:uppercase;color:var(--white);margin-bottom:0.4rem;">🌊 Storm Surge Danger</div>
+                <p style="font-size:0.88rem;color:var(--slate-400);line-height:1.5;">Storm surge — not rain — is the leading cause of typhoon deaths in the Philippines. Coastal barangays can be inundated by walls of water 3–6 meters high within minutes of landfall.</p>
+              </div>
+              <div style="background:var(--slate-700);border-radius:var(--radius-lg);padding:1.4rem;border-left:4px solid var(--green-400);">
+                <div style="font-family:var(--font-display);font-weight:800;font-size:1rem;text-transform:uppercase;color:var(--white);margin-bottom:0.4rem;">✅ Early Evacuation Saves Lives</div>
+                <p style="font-size:0.88rem;color:var(--slate-400);line-height:1.5;">Evacuating 12–24 hours before landfall reduces mortality risk by over 80%. The single most important decision in a typhoon is leaving early, before roads flood and roads become inaccessible.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         MULTI-LEVEL SERVER ACCESS UI
+         ======================================================== -->
+    <section class="section role-ui-section" aria-labelledby="role-ui-heading">
+      <div class="section-inner">
+        <div class="section-header">
+          <div class="section-eyebrow">🛡️ Access Control</div>
+          <h2 class="section-title" id="role-ui-heading">Multi-Level <span class="accent">Server UI</span></h2>
+          <p class="section-subtitle">Role-based permissions for streamlined infrastructure management, incident response, and user access control.</p>
+        </div>
+
+        <div class="role-dashboard">
+          <aside class="role-sidebar" aria-label="User role selector">
+            <div class="profile-summary">
+              <div class="profile-avatar">AS</div>
+              <div>
+                <div class="profile-name">Admin System</div>
+                <div class="profile-subtitle">Ops Console</div>
+              </div>
+            </div>
+
+            <div class="role-switcher" role="tablist" aria-label="Select access level">
+              <button class="role-btn is-active" type="button" data-role="admin" role="tab" aria-selected="true">
+                <span class="role-icon">👑</span>
+                <span>Admin</span>
+                <span class="role-dot"></span>
+              </button>
+              <button class="role-btn" type="button" data-role="super" role="tab" aria-selected="false">
+                <span class="role-icon">🛠️</span>
+                <span>Super</span>
+                <span class="role-dot"></span>
+              </button>
+              <button class="role-btn" type="button" data-role="user" role="tab" aria-selected="false">
+                <span class="role-icon">👤</span>
+                <span>User</span>
+                <span class="role-dot"></span>
+              </button>
+            </div>
+
+            <div class="role-brief">
+              <div class="brief-label">Current Access</div>
+              <div class="brief-value" id="role-access">Full system control</div>
+            </div>
+          </aside>
+
+          <div class="role-panel" aria-live="polite">
+            <div class="panel-header">
+              <div>
+                <div class="panel-kicker">Access Level</div>
+                <h3 id="role-title">Admin</h3>
+              </div>
+              <span class="status-pill" id="role-status-pill">Active</span>
+            </div>
+
+            <p class="role-description" id="role-description">
+              Full administrative access to maintain infrastructure, manage user permissions, and monitor critical system events in real time.
+            </p>
+
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <span class="metric-label">Managed Nodes</span>
+                <strong class="metric-value" data-metric="nodes">128</strong>
+              </div>
+              <div class="metric-card">
+                <span class="metric-label">Security Events</span>
+                <strong class="metric-value" data-metric="events">24</strong>
+              </div>
+              <div class="metric-card">
+                <span class="metric-label">Active Sessions</span>
+                <strong class="metric-value" data-metric="sessions">19</strong>
+              </div>
+            </div>
+
+            <div class="permission-section">
+              <div class="permission-header">
+                <span>Permissions</span>
+                <span class="permission-count" id="permission-count">6 enabled</span>
+              </div>
+              <div class="permissions-list" id="permission-list"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         DISASTER DON'T WAIT SECTION
+         ======================================================== -->
+    <section class="section" aria-labelledby="cta-heading">
+      <div class="section-inner" style="text-align:center;">
+        <div class="section-eyebrow">🚨 Act Now</div>
+        <h2 class="section-title" id="cta-heading">Disasters Don't Wait. <span class="accent">Neither Should You.</span></h2>
+        <p class="section-subtitle" style="margin-top:0.75rem;">Start building your emergency plan today. Access our free tools, check your flood risk, and connect with emergency services.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
+          <a href="features.html" class="btn btn-primary btn-lg">⚡ Start Preparing Now</a>
+          <a href="contact.html" class="btn btn-danger btn-lg">📞 Emergency Contacts</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================
+       FOOTER SECTION
+       ======================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-logo">
+            <div class="footer-brand-icon">🌀</div>
+            <span class="footer-brand-name">Typhoon<span>Ready</span> PH</span>
+          </div>
+          <p class="footer-brand-desc">
+            A community-driven disaster preparedness platform for the Philippines. Built in alignment with the United Nations Sustainable Development Goal 13: Climate Action.
+          </p>
+        </div>
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <div class="footer-col-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About SDG 13</a>
+            <a href="features.html">Preparedness Tools</a>
+            <a href="contact.html">Emergency Contacts</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Resources</div>
+          <div class="footer-col-links">
+            <a href="features.html#tool-gobag">Go-Bag Checklist</a>
+            <a href="features.html#tool-flood">Flood Simulator</a>
+            <a href="features.html#tool-evac">Evacuation Finder</a>
+            <a href="features.html#tool-sitrep">Situation Reports</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Emergency Lines</div>
+          <div class="footer-col-links">
+            <a href="tel:8-1-1">NDRRMC: 8-1-1</a>
+            <a href="tel:160">BFP Hotline: 160</a>
+            <a href="tel:143">Red Cross: 143</a>
+            <a href="tel:911">Emergency: 911</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-bottom-text">© 2025 TyphoonReady PH. Built for community resilience. Educational use only.</span>
+        <span class="footer-sdg-badge">🌍 SDG 13 — Climate Action</span>
+      </div>
+    </div>
+    <div class="footer-bottom" style="display: flex; flex-direction: column; gap: 0.5rem; align-items: center; border-top: 1px solid var(--slate-800); padding-top: 1.5rem; margin-top: 1.5rem;">
+        <span class="footer-bottom-text" style="color: var(--slate-400); font-size: 0.85rem;">
+          © 2026 Developed &amp; Designed by <strong>JOHN ALLEN D. CORPUZ</strong>
+        </span>
+        <span style="font-size: 0.8rem; color: var(--slate-500); font-family: monospace;">
+          📧 <a href="mailto:john.dlssnts.02@gmail.com" style="color: var(--orange-400); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='var(--orange-400)'">john.dlssnts.02@gmail.com</a>
+        </span>
+      </div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>

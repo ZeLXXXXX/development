@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TyphoonReady PH portal sign in and sign up interface." />
+  <title>TyphoonReady PH — Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="auth-page">
+  <div class="auth-shell">
+    <aside class="auth-brand" aria-label="TyphoonReady PH introduction">
+      <div>
+        <div class="auth-brand-mark">
+          <div class="auth-brand-icon">🌀</div>
+          <div class="auth-brand-name">Typhoon<span>Ready</span> PH</div>
+        </div>
+
+        <div class="auth-brand-copy">
+          <div class="eyebrow">Preparedness Portal</div>
+          <h1>Stay ready.<br />Stay safe.</h1>
+          <p>
+            Access your emergency dashboard, monitor alerts, and manage your disaster response tools
+            with secure, role-based access for teams and communities.
+          </p>
+        </div>
+      </div>
+
+      <div class="auth-brand-foot">
+        <span class="dot" aria-hidden="true"></span>
+        <span>System status: online and monitoring</span>
+      </div>
+    </aside>
+
+    <main class="auth-card" aria-label="Authentication panel">
+      <div class="auth-topbar">
+        <h2 class="auth-title">Access</h2>
+        <a href="index.html" class="auth-home-link">Home</a>
+      </div>
+
+      <div class="auth-tabs" role="tablist" aria-label="Authentication mode">
+        <button class="auth-tab is-active" type="button" data-auth="login" role="tab" aria-selected="true">Sign In</button>
+        <button class="auth-tab" type="button" data-auth="signup" role="tab" aria-selected="false">Sign Up</button>
+      </div>
+
+      <form class="auth-form is-active" data-auth="login" aria-label="Sign in form">
+        <div class="auth-field full">
+          <label for="login-email">Email</label>
+          <input id="login-email" type="email" placeholder="you@example.com" />
+        </div>
+
+        <div class="auth-field full">
+          <label for="login-password">Password</label>
+          <input id="login-password" type="password" placeholder="Enter your password" />
+        </div>
+
+        <div class="auth-row">
+          <label class="remember">
+            <input type="checkbox" />
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="forgot">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="auth-submit">Login to Dashboard</button>
+      </form>
+
+      <form class="auth-form" data-auth="signup" aria-label="Sign up form">
+        <div class="auth-form-grid">
+          <div class="auth-field">
+            <label for="signup-name">Full Name</label>
+            <input id="signup-name" type="text" placeholder="Juan Dela Cruz" />
+          </div>
+
+          <div class="auth-field">
+            <label for="signup-role">Role</label>
+            <select id="signup-role">
+              <option>Admin</option>
+              <option>Super</option>
+              <option>User</option>
+            </select>
+          </div>
+
+          <div class="auth-field full">
+            <label for="signup-email">Email</label>
+            <input id="signup-email" type="email" placeholder="you@example.com" />
+          </div>
+
+          <div class="auth-field">
+            <label for="signup-password">Password</label>
+            <input id="signup-password" type="password" placeholder="Create password" />
+          </div>
+
+          <div class="auth-field">
+            <label for="signup-confirm">Confirm</label>
+            <input id="signup-confirm" type="password" placeholder="Confirm password" />
+          </div>
+        </div>
+
+        <div class="auth-row" style="margin-top:1rem;">
+          <label class="remember">
+            <input type="checkbox" />
+            <span>I agree to the terms</span>
+          </label>
+        </div>
+
+        <button type="submit" class="auth-submit">Create Account</button>
+      </form>
+
+      <div class="auth-divider"><span>or continue with</span></div>
+
+      <div class="auth-socials">
+        <button type="button" class="auth-social">🟦 Google</button>
+        <button type="button" class="auth-social">🪟 Microsoft</button>
+      </div>
+
+      <div class="auth-footer">
+        <span>Need an account?</span>
+        <a href="#" class="switch-link" data-target="signup">Create one</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

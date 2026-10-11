@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TyphoonReady PH Preparedness Tools — Go-Bag Checklist, Flood Depth Simulator, Evacuation Center Finder, and Situation Report Feed." />
+  <title>Preparedness Tools — TyphoonReady PH</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌀</text></svg>" />
+</head>
+<body>
+
+  <!-- ========================================================
+       NAVIGATION TOP BAR
+       ======================================================== -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand" aria-label="TyphoonReady PH Home">
+        <div class="nav-brand-icon">🌀</div>
+        <span class="nav-brand-text">Typhoon<span>Ready</span> PH</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="features.html" class="active">Tools</a></li>
+        <li><a href="contact.html" class="nav-cta">Emergency Contacts</a></li>
+      </ul>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Tools Menu -->
+  <div class="mobile-menu" id="mobile-menu" role="menu">
+    <a href="index.html" role="menuitem">Home</a>
+    <a href="about.html" role="menuitem">About</a>
+    <a href="features.html" role="menuitem">Tools</a>
+    <a href="contact.html" role="menuitem">Emergency Contacts</a>
+  </div>
+
+  <main class="page-wrap">
+
+    <!-- ========================================================
+         DISASTER PREPAREDNESS TOOL SUITE SECTION
+         ======================================================== -->
+    <section class="page-hero" aria-labelledby="features-main-heading">
+      <div class="page-hero-inner">
+        <div class="section-eyebrow">⚡ Interactive Tools</div>
+        <h1 id="features-main-heading" style="font-family:var(--font-display);font-weight:900;font-size:clamp(2.2rem,5vw,3.8rem);text-transform:uppercase;color:var(--white);line-height:1;margin-bottom:0.75rem;">
+          Disaster Preparedness <span style="color:var(--orange-400)">Tool Suite</span>
+        </h1>
+        <p style="color:var(--slate-400);font-size:1rem;max-width:560px;line-height:1.6;">
+          Four fully interactive tools to assess your readiness, understand flood dangers, locate evacuation centers, and connect with your community during a disaster.
+        </p>
+ 
+        <!-- Tool Menu -->
+        <div style="display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:1.5rem;">
+          <a href="#tool-gobag" class="btn btn-ghost btn-sm">🎒 Go-Bag Checklist</a>
+          <a href="#tool-flood" class="btn btn-ghost btn-sm">🌊 Flood Simulator</a>
+          <a href="#tool-evac" class="btn btn-ghost btn-sm">🏫 Evacuation Finder</a>
+          <a href="#tool-sitrep" class="btn btn-ghost btn-sm">📡 Situation Reports</a>
+        </div>
+      </div>
+    </section>
+ 
+
+    <!-- ========================================================
+         TOOLS SECTION
+         ======================================================== -->
+    <div class="tools-section">
+      <div class="tools-inner">
+
+        <!-- ====================================================
+             TOOL 1 — GO-BAG CHECKLIST
+             ==================================================== -->
+        <article class="tool-panel" id="tool-gobag" aria-labelledby="tool1-title">
+          <div class="tool-header">
+            <div class="tool-num">01</div>
+            <div class="tool-title-group">
+              <div class="tool-eyebrow">Emergency Preparedness</div>
+              <h2 class="tool-title" id="tool1-title">🎒 Interactive Go-Bag Checklist</h2>
+            </div>
+          </div>
+
+          <p style="font-size:0.92rem;color:var(--slate-400);margin-bottom:1.8rem;line-height:1.6;">
+            Your bag only has room for <strong style="color:var(--orange-400);">exactly 7 items</strong>! Choose wisely from the 14 options below. Real survival gear shifts the bar right toward safety, while heavy or sugary distractions pull you back to danger.
+          </p>
+
+          <div class="checklist-grid" id="checklist-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(110px, 1fr));gap:1.5rem;justify-items:center;" role="group" aria-label="Go-bag emergency items selector">
+            
+            <label class="gobag-label" style="cursor:pointer;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.5rem;width:110px;">
+              <input type="checkbox" class="gobag-item-trigger" data-weight="7.14" data-type="good" style="display:none;" />
+              <div class="circle-frame" style="width:90px;height:90px;border-radius:50%;background:var(--slate-700);border:3px solid var(--slate-600);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:all 0.2s ease;">
+                <span style="font-size:2rem;">💧</span>
+              </div>
+              <span style="font-size:0.85rem;color:var(--slate-300);font-weight:500;">Drinking Water</span>
+            </label>
+
+            <label class="gobag-label" style="cursor:pointer;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.5rem;width:110px;">
+              <input type="checkbox" class="gobag-item-trigger" data-weight="-7.14" data-type="bad" style="display:none;" />
+              <div class="circle-frame" style="width:90px;height:90px;border-radius:50%;background:var(--slate-700);border:3px solid var(--slate-600);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:all 0.2s ease;">
+                <span style="font-size:2rem;">💎</span>
+              </div>
+              <span style="font-size:0.85rem;color:var(--slate-300);font-weight:500;">Gold & Jewelry</span>
+            </label>
+
+            <label class="gobag-label" style="cursor:pointer;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.5rem;width:110px;">
+              <input type="checkbox" class="gobag-item-trigger" data-weight="7.14" data-type="good" style="display:none;" />
+              <div class="circle-frame" style="width:90px;height:90px;border-radius:50%;background:var(--slate-700);border:3px solid var(--slate-600);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:all 0.2s ease;">
+                <span style="font-size:2rem;">🥫</span>
+              </div>
+              <span style="font-size:0.85rem;color:var(--slate-300);font-weight:500;">Canned Food</span>
+            </label>
+
+            <label class="gobag-label" style="cursor:pointer;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.5rem;width:110px;">
+              <input type="checkbox" class="gobag-item-trigger" data-weight="-7.14" data-type="bad" style="display:none;" />
+              <div class="circle-frame" style="width:90px;height:90px;border-radius:50%;background:var(--slate-700);border:3px solid var(--slate-600);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:all 0.2s ease;">
+                <span style="font-size:2rem;">💻</span>
+              </div>
+              <span style="font-size:0.85rem;color:var(--slate-300);font-weight:500;">Heavy Laptop</span>
+            </label>
+
+            <label class="gobag-label" style="cursor:pointer;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.5rem;width:110px;">
+              <input type="checkbox" class="gobag-item-trigger" data-weight="7.14" data-type="good" style="display:none;" />
+              <div class="circle-frame" style="width:90px;height:90px;border-radius:50%;background:var(--slate-700);border:3px solid var(--slate-600);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:all 0.2s ease;">
+                <span style="font-size:2rem;">🩹</span>
+              </div>
+              <span style="font-size:0.85rem;color:var(--slate-300);font-weight:500;">First Aid Kit</span>
+            </label>
+
+            <label class="gobag-label" style="cursor:pointer;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.5rem;width:110px;">
+              <input type="checkbox" class="gobag-item-trigger" data-weight="7.14" data-type="good" style="display:none;" />
+              <div class="circle-frame" style="width:90px;height:90px;border-radius:50%;background:var(--slate-700);border:3px solid var(--slate-600);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:all 0.2s ease;">
+                <span style="font-size:2rem;">🔦</span>
+              </div>
+              <span style="font-size:0.85rem;color:var(--slate-300);font-weight:500;">Flashlight</span>
+            </label>
+
+            <label class="gobag-label" style="cursor:pointer;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.5rem;width:110px;">
+              <input type="checkbox" class="gobag-item-trigger" data-weight="-7.14" data-type="bad" style="display:none;" />
+              <div class="circle-frame" style="width:90px;height:90px;border-radius:50%;background:var(--slate-700);border:3px solid var(--slate-600);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:all 0.2s ease;">
+                <span style="font-size:2rem;">🥛</span>
+              </div>
+              <span style="font-size:0.85rem;color:var(--slate-300);font-weight:500;">Fresh Milk</span>
+            </label>
+
+            <label class="gobag-label" style="cursor:pointer;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.5rem;width:110px;">
+              <input type="checkbox" class="gobag-item-trigger" data-weight="7.14" data-type="good" style="display:none;" />
+              <div class="circle-frame" style="width:90px;height:90px;border-radius:50%;background:var(--slate-700);border:3px solid var(--slate-600);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:all 0.2s ease;">
+                <span style="font-size:2rem;">🛟</span>
+              </div>
+              <span style="font-size:0.85rem;color:var(--slate-300);font-weight:500;">Rescue Whistle</span>
+            </label>
+
+            <label class="gobag-label" style="cursor:pointer;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.5rem;width:110px;">
+              <input type="checkbox" class="gobag-item-trigger" data-weight="-7.14" data-type="bad" style="display:none;" />
+              <div class="circle-frame" style="width:90px;height:90px;border-radius:50%;background:var(--slate-700);border:3px solid var(--slate-600);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:all 0.2s ease;">
+                <span style="font-size:2rem;">🧸</span>
+              </div>
+              <span style="font-size:0.85rem;color:var(--slate-300);font-weight:500;">Plush Toys</span>
+            </label>
+
+            <label class="gobag-label" style="cursor:pointer;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.5rem;width:110px;">
+              <input type="checkbox" class="gobag-item-trigger" data-weight="7.14" data-type="good" style="display:none;" />
+              <div class="circle-frame" style="width:90px;height:90px;border-radius:50%;background:var(--slate-700);border:3px solid var(--slate-600);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:all 0.2s ease;">
+                <span style="font-size:2rem;">💵</span>
+              </div>
+              <span style="font-size:0.85rem;color:var(--slate-300);font-weight:500;">Docs & Cash</span>
+            </label>
+
+            <label class="gobag-label" style="cursor:pointer;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.5rem;width:110px;">
+              <input type="checkbox" class="gobag-item-trigger" data-weight="-7.14" data-type="bad" style="display:none;" />
+              <div class="circle-frame" style="width:90px;height:90px;border-radius:50%;background:var(--slate-700);border:3px solid var(--slate-600);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:all 0.2s ease;">
+                <span style="font-size:2rem;">🌂</span>
+              </div>
+              <span style="font-size:0.85rem;color:var(--slate-300);font-weight:500;">Umbrella</span>
+            </label>
+
+            <label class="gobag-label" style="cursor:pointer;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.5rem;width:110px;">
+              <input type="checkbox" class="gobag-item-trigger" data-weight="-7.14" data-type="bad" style="display:none;" />
+              <div class="circle-frame" style="width:90px;height:90px;border-radius:50%;background:var(--slate-700);border:3px solid var(--slate-600);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:all 0.2s ease;">
+                <span style="font-size:2rem;">🍿</span>
+              </div>
+              <span style="font-size:0.85rem;color:var(--slate-300);font-weight:500;">Potato Chips</span>
+            </label>
+
+            <label class="gobag-label" style="cursor:pointer;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.5rem;width:110px;">
+              <input type="checkbox" class="gobag-item-trigger" data-weight="7.14" data-type="good" style="display:none;" />
+              <div class="circle-frame" style="width:90px;height:90px;border-radius:50%;background:var(--slate-700);border:3px solid var(--slate-600);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:all 0.2s ease;">
+                <span style="font-size:2rem;">📻</span>
+              </div>
+              <span style="font-size:0.85rem;color:var(--slate-300);font-weight:500;">Battery Radio</span>
+            </label>
+
+            <label class="gobag-label" style="cursor:pointer;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.5rem;width:110px;">
+              <input type="checkbox" class="gobag-item-trigger" data-weight="-7.14" data-type="bad" style="display:none;" />
+              <div class="circle-frame" style="width:90px;height:90px;border-radius:50%;background:var(--slate-700);border:3px solid var(--slate-600);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:all 0.2s ease;">
+                <span style="font-size:2rem;">🥤</span>
+              </div>
+              <span style="font-size:0.85rem;color:var(--slate-300);font-weight:500;">Sweet Soda</span>
+            </label>
+
+          </div>
+
+          <div style="text-align:center; margin-top:1.5rem; font-size:0.9rem; font-weight:bold; color:var(--slate-400);" id="item-counter-msg">
+            Items Selected: <span id="current-count" style="color:var(--orange-400);">0</span> / 7
+          </div>
+
+          <div style="margin-top:1.5rem; display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+            <button class="btn btn-primary" id="zip-bag-btn" style="padding:0.8rem 2rem; font-weight:bold; letter-spacing:0.5px; text-transform:uppercase;">
+              🎒 Zip Up Go-Bag
+            </button>
+            <button class="btn btn-ghost" id="reset-bag-btn" style="padding:0.8rem 1.5rem; font-weight:bold; border:1px solid var(--slate-600); display:none;">
+              🔄 Try Again
+            </button>
+          </div>
+
+          <div id="results-display-wrapper" style="display:none; margin-top:2.5rem; transition: all 0.4s ease;">
+            <div style="margin-bottom:1.5rem;">
+              <div class="progress-label" style="display:flex; justify-content:space-between; font-size:0.85rem; font-weight:700; text-transform:uppercase; margin-bottom:0.5rem;">
+                <span style="color:var(--red-400);">❌ Unready</span>
+                <span style="color:var(--white); background:var(--slate-700); padding:2px 8px; border-radius:4px;" id="checklist-percent">50%</span>
+                <span style="color:var(--emerald-400);">✅ Prepared</span>
+              </div>
+              
+              <div class="progress-wrap" style="background:#1e293b; height:24px; border-radius:12px; overflow:hidden; position:relative; border:2px solid #475569;">
+                
+                <div style="position:absolute; left:50%; top:0; bottom:0; width:4px; background:#ffffff; z-index:10; box-shadow:0 0 6px rgba(0,0,0,0.8);" title="Baseline"></div>
+                
+                <div class="progress-bar" id="checklist-progress-bar" style="width:0%; height:100%; background:linear-gradient(90deg, #ef4444 0%, #eab308 50%, #10b981 100%); transition: width 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="readiness-status" id="readiness-status" style="text-align:left; font-weight:500; line-height:1.6; font-size:0.95rem; padding:1.2rem; border-radius:var(--radius-md); background:var(--slate-800); border-left:4px solid var(--slate-500);" aria-live="polite">
+              Bag zipped! Assessing contents...
+            </div>
+          </div>
+
+          <div style="margin-top:1.5rem;background:rgba(242,108,0,0.06);border:1px solid rgba(242,108,0,0.15);border-radius:var(--radius-md);padding:1rem;font-size:0.85rem;color:var(--slate-400);line-height:1.6;">
+            <strong style="color:var(--orange-400);">💡 Tip:</strong> NDRRMC recommends having enough water (4 liters per person per day) and food for at least 72 hours. Keep your go-bag near the door, easy to grab quickly.
+          </div>
+        </article>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const checkboxes = document.querySelectorAll('.gobag-item-trigger');
+            const zipButton = document.getElementById('zip-bag-btn');
+            const resetButton = document.getElementById('reset-bag-btn');
+            const resultsWrapper = document.getElementById('results-display-wrapper');
+            const progressBar = document.getElementById('checklist-progress-bar');
+            const percentLabel = document.getElementById('checklist-percent');
+            const statusMessage = document.getElementById('readiness-status');
+            const counterDisplay = document.getElementById('current-count');
+
+            const MAX_ALLOWED = 7;
+
+   
+            checkboxes.forEach(box => {
+              box.addEventListener('change', () => {
+                // Count current active selections
+                const activeChecked = document.querySelectorAll('.gobag-item-trigger:checked');
+                
+                if (activeChecked.length > MAX_ALLOWED) {
+                  box.checked = false; // Block checking an 8th item
+                  alert("⚠️ Your Go-Bag is full! You can only fit 7 items total. Uncheck something first!");
+                  return;
+                }
+
+    
+                counterDisplay.innerText = activeChecked.length;
+
+      
+                const frame = box.nextElementSibling;
+                if(box.checked) {
+                  frame.style.borderColor = 'var(--orange-400)';
+                  frame.style.background = 'rgba(242,108,0,0.12)';
+                  frame.style.transform = 'scale(1.05)';
+                } else {
+                  frame.style.borderColor = 'var(--slate-600)';
+                  frame.style.background = 'var(--slate-700)';
+                  frame.style.transform = 'scale(1)';
+                }
+              });
+            });
+
+            zipButton.addEventListener('click', () => {
+              const activeChecked = document.querySelectorAll('.gobag-item-trigger:checked');
+              
+              if (activeChecked.length < MAX_ALLOWED) {
+                alert(`🎒 Please select exactly ${MAX_ALLOWED} items to pack your bag completely before zipping!`);
+                return;
+              }
+
+              let score = 50; 
+              let goodCheckedCount = 0;
+              let badCheckedCount = 0;
+
+              checkboxes.forEach(item => {
+                if (item.checked) {
+                  score += parseFloat(item.getAttribute('data-weight'));
+                  if (item.getAttribute('data-type') === 'good') goodCheckedCount++;
+                  if (item.getAttribute('data-type') === 'bad') badCheckedCount++;
+                }
+              });
+
+              score = Math.max(0, Math.min(100, Math.round(score)));
+
+              resultsWrapper.style.display = 'block';
+              resetButton.style.display = 'inline-block';
+              zipButton.style.display = 'none';
+
+   
+              checkboxes.forEach(box => box.disabled = true);
+
+              setTimeout(() => {
+                progressBar.style.width = `${score}%`;
+                progressBar.setAttribute('aria-valuenow', score);
+                percentLabel.innerText = `${score}%`;
+
+                if (score === 50) {
+                  statusMessage.innerText = "😐 Neutral: Your bag has a completely random layout. It is counter-balanced with equal amounts of life-saving gear and heavy clutter. You aren't fully equipped to face an emergency situation yet!";
+                  statusMessage.style.borderColor = "var(--slate-500)";
+                } else if (score < 50) {
+                  let reason = "Your bag is dangerously weighed down with luxury electronics, perishable milk, or jewelry while completely missing vital survival tools.";
+                  if (badCheckedCount >= 5) {
+                    reason = "You filled almost your entire limit with non-essentials! Heavy laptops, fragile jewelry, sodas, and plush toys won't keep you safe when flood waters rise or power shuts off.";
+                  } else {
+                    reason = "The choice of junk food (like potato chips) or sugary soda accelerates dehydration, while heavy bulky tech items just exhaust your energy during evacuation walks.";
+                  }
+                  statusMessage.innerText = `❌ Unready (${score}%): ${reason} Re-evaluate your priorities and aim for absolute safety.`;
+                  statusMessage.style.borderColor = "var(--red-400)";
+                } else if (score < 100) {
+                  statusMessage.innerText = `⚡ Partially Equipped (${score}%): You managed to pack some excellent life-saving essentials (like clean water or medical kits). However, adding distracting non-essentials like sodas, plush toys, or tech items wasted valuable slots and dragged your overall survival score down. Clear out the junk!`;
+                  statusMessage.style.borderColor = "var(--yellow-400)";
+                } else {
+                  statusMessage.innerText = `🏆 Fully Prepared (${score}%): Perfect choice composition! By choosing all 7 pure survival assets (Water, Canned Food, First Aid, Flashlight, Whistle, Docs, and Radio), your bag remains lightweight, fully compliant with international relief parameters, and entirely ready to sustain life for 72 hours. Excellent job!`;
+                  statusMessage.style.borderColor = "var(--emerald-400)";
+                }
+              }, 150);
+            });
+
+            resetButton.addEventListener('click', () => {
+              resultsWrapper.style.display = 'none';
+              resetButton.style.display = 'none';
+              zipButton.style.display = 'inline-block';
+              counterDisplay.innerText = "0";
+
+              checkboxes.forEach(box => {
+                box.checked = false;
+                box.disabled = false;
+                const frame = box.nextElementSibling;
+                frame.style.borderColor = 'var(--slate-600)';
+                frame.style.background = 'var(--slate-700)';
+                frame.style.transform = 'scale(1)';
+              });
+
+              progressBar.style.width = '0%';
+              percentLabel.innerText = '50%';
+            });
+          });
+        </script>
+
+        <!-- ====================================================
+             TOOL 2 — FLOOD DEPTH VEHICLE SIMULATOR
+             ==================================================== -->
+       <article class="tool-panel" id="tool-flood" aria-labelledby="tool2-title">
+        
+          <div class="tool-header">
+            <div class="tool-num">02</div>
+            <div class="tool-title-group">
+              <div class="tool-eyebrow">Interactive Risk Matrix</div>
+              <h2 class="tool-title" id="tool2-title">🌊 Advanced Flood Level Simulator</h2>
+            </div>
+          </div>
+
+          <p style="font-size:0.92rem;color:var(--slate-400);margin-bottom:1.8rem;line-height:1.6;">
+            Drag the master controller slider to simulate rising flash floodwaters. See how depth level thresholds systematically threaten an average adult standing <strong style="color:var(--orange-400);">5'5" tall (5.5 ft)</strong> on the ground floor.
+          </p>
+
+          <div style="display:grid; grid-template-columns:1fr; gap:2rem; background:var(--slate-900); padding:1.8rem; border-radius:var(--radius-lg); border:1px solid var(--slate-800);">
+            
+            <div style="position:relative; width:100%; height:380px; background:radial-gradient(circle at center, #0f172a 0%, #020617 100%); border-radius:var(--radius-md); overflow:hidden; border:2px solid var(--slate-700); box-shadow: inset 0 0 40px rgba(0,0,0,0.6);">
+              
+              <div style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:space-between; padding: 15px 0 35px 0; pointer-events:none; z-index:1;">
+                <div style="width:100%; border-top:1px dashed rgba(239,68,68,0.25); position:relative;"><span style="position:absolute; right:75px; top:-8px; font-size:0.7rem; color:rgba(239,68,68,0.7); font-family:monospace; background:#020617; padding:0 6px;">DANGER ZONE (OVERHEAD)</span></div>
+                <div style="width:100%; border-top:1px dashed rgba(249,115,22,0.2); position:relative;"><span style="position:absolute; right:75px; top:-8px; font-size:0.7rem; color:var(--orange-400); font-family:monospace; background:#020617; padding:0 6px;">CHEST THRESHOLD</span></div>
+                <div style="width:100%; border-top:1px dashed rgba(234,179,8,0.15); position:relative;"><span style="position:absolute; right:75px; top:-8px; font-size:0.7rem; color:var(--yellow-400); font-family:monospace; background:#020617; padding:0 6px;">WAIST THRESHOLD</span></div>
+                <div style="width:100%; border-top:1px dashed rgba(255,255,255,0.05); position:relative;"></div>
+              </div>
+
+              <div style="position:absolute; right:16px; top:0; bottom:0; display:flex; flex-direction:column; justify-content:space-between; font-size:0.75rem; color:var(--slate-400); pointer-events:none; font-family:monospace; text-align:right; padding: 15px 0 35px 0; z-index:4; font-weight:600;">
+                <span style="color:var(--slate-500)">8.0 ft (Max Cap)</span>
+                <span id="tick-head" style="transition: color 0.2s;">5.5 ft (Head Top)</span>
+                <span id="tick-chest" style="transition: color 0.2s;">4.0 ft (Chest Line)</span>
+                <span id="tick-waist" style="transition: color 0.2s;">2.8 ft (Waist Line)</span>
+                <span id="tick-knee" style="transition: color 0.2s;">1.5 ft (Knee Line)</span>
+                <span style="color:var(--slate-500)">0.0 ft (Dry Ground)</span>
+              </div>
+
+              <div id="sim-human-container" style="position:absolute; bottom:30px; left:50%; transform:translateX(-50%); width:100px; height:68.75%; z-index:2; transition: all 0.2s ease;">
+                
+                <svg id="human-anatomy-svg" viewBox="0 0 100 240" style="width:100%; height:100%; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.55));" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="body-submersion-grad" x1="0%" y1="100%" x2="0%" y2="0%">
+                      <stop id="grad-water-cutoff" offset="0%" stop-color="#0ea5e9" stop-opacity="0.45" />
+                      <stop id="grad-dry-cutoff" offset="0%" stop-color="#f8fafc" stop-opacity="1" />
+                    </linearGradient>
+                  </defs>
+                  
+                  <path fill="url(#body-submersion-grad)" stroke="#cbd5e1" stroke-width="1" d="
+                    M 50,15 A 11,11 0 1,1 50,37 A 11,11 0 1,1 50,15 Z 
+                    M 46,38 C 42,38 39,40 39,43 L 39,48 C 34,50 28,55 26,62 L 20,110 C 19,114 22,117 25,116 C 28,115 29,112 30,108 L 34,72 L 34,135 C 34,139 36,142 39,142 L 41,142 L 39,232 C 39,235 34,235 34,237 L 49,237 L 49,175 L 51,175 L 51,237 L 66,237 C 66,235 61,235 61,232 L 59,142 L 61,142 C 64,142 66,139 66,135 L 66,72 L 70,108 C 71,112 72,115 75,116 C 78,117 81,114 80,110 L 74,62 C 72,55 66,50 61,48 L 61,43 C 61,40 58,38 54,38 Z
+                  " />
+                </svg>
+              </div>
+
+              <div id="flood-water-layer" style="position:absolute; bottom:30px; left:0; right:0; height:0%; background:linear-gradient(180deg, rgba(6,182,212,0.55) 0%, rgba(14,116,144,0.75) 100%); border-top:3px solid #22d3ee; z-index:3; transition: height 0.08s linear; pointer-events:none; box-shadow: inset 0 15px 25px rgba(34,211,238,0.25);">
+                <div style="width:200%; height:6px; background:rgba(255,255,255,0.35); position:absolute; top:-2px; left:0; animation: wave-motion 2.5s infinite linear; opacity:0.8;"></div>
+              </div>
+
+              <div style="position:absolute; bottom:0; left:0; right:0; height:30px; background:linear-gradient(180deg, #334155 0%, #1e293b 100%); border-top:3px solid #64748b; z-index:5; display:flex; align-items:center; justify-content:center;">
+                <span style="font-size:0.72rem; color:var(--slate-400); font-weight:800; letter-spacing:1px; text-transform:uppercase;">🗺️ Ground Floor Surface</span>
+              </div>
+            </div>
+
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.85rem;">
+                <label for="flood-depth-slider" style="font-size:0.85rem; font-weight:800; text-transform:uppercase; color:var(--slate-400); letter-spacing:0.5px;">
+                  🎛️ Adjust Submersion Controller
+                </label>
+                <div style="font-size:1.8rem; font-weight:900; color:var(--orange-400); font-family:monospace; background:var(--slate-950); padding:2px 14px; border-radius:var(--radius-md); border:1px solid var(--slate-800);" id="flood-value-readout">
+                  0.0 <span style="font-size:1rem; font-weight:700; color:var(--slate-500);">ft</span>
+                </div>
+              </div>
+
+              <input 
+                type="range" 
+                id="flood-depth-slider" 
+                min="0" 
+                max="8" 
+                step="0.1" 
+                value="0" 
+                style="width:100%; height:10px; background:var(--slate-800); border-radius:6px; outline:none; cursor:pointer;"
+              />
+            </div>
+
+            <div id="flood-status-alert" style="padding:1.2rem; border-radius:var(--radius-md); background:var(--slate-800); border-left:5px solid var(--slate-600); font-size:0.92rem; line-height:1.6; font-weight:500; color:var(--slate-200); transition: all 0.2s ease;">
+              Ground floor is completely dry. Drag the selector handle to activate calibration model.
+            </div>
+
+          </div>
+        </article>
+
+        <style>
+          @keyframes wave-motion {
+            0% { transform: translateX(0) scaleY(1); }
+            50% { transform: translateX(-25%) scaleY(1.15); }
+            100% { transform: translateX(-50%) scaleY(1); }
+          }
+        </style>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const slider = document.getElementById('flood-depth-slider');
+            const readout = document.getElementById('flood-value-readout');
+            const waterLayer = document.getElementById('flood-water-layer');
+            const statusBox = document.getElementById('flood-status-alert');
+            const container = document.getElementById('sim-human-container');
+            
+            const tKnee = document.getElementById('tick-knee');
+            const tWaist = document.getElementById('tick-waist');
+            const tChest = document.getElementById('tick-chest');
+            const tHead = document.getElementById('tick-head');
+
+            const gradWaterCutoff = document.getElementById('grad-water-cutoff');
+            const gradDryCutoff = document.getElementById('grad-dry-cutoff');
+
+            const MAX_CANVAS_FEET = 8.0; 
+            const HUMAN_HEIGHT_FEET = 5.5;
+
+            function updateSimulation(currentFeet) {
+  
+              readout.innerHTML = `${currentFeet.toFixed(1)} <span style="font-size:1rem; font-weight:700; color:var(--slate-500);">ft</span>`;
+
+        
+              const poolPercentage = (currentFeet / MAX_CANVAS_FEET) * 100;
+              waterLayer.style.height = `${Math.min(100, poolPercentage)}%`;
+
+              let submersionRatio = currentFeet / HUMAN_HEIGHT_FEET;
+              let submersionPercentage = Math.min(100, Math.max(0, submersionRatio * 100));
+              
+              gradWaterCutoff.setAttribute('offset', `${submersionPercentage}%`);
+              gradDryCutoff.setAttribute('offset', `${submersionPercentage}%`);
+
+              [tKnee, tWaist, tChest, tHead].forEach(el => { el.style.color = 'var(--slate-400)'; el.style.fontWeight = '600'; });
+
+              if (currentFeet === 0) {
+                statusBox.innerHTML = "☀️ <strong>Status: Dry Ground</strong> — Ground level is clear. Zero residential restriction pathways active.";
+                statusBox.style.borderColor = "var(--slate-600)";
+                statusBox.style.background = "var(--slate-800)";
+                container.style.filter = "none";
+              } 
+              else if (currentFeet <= 1.5) {
+                tKnee.style.color = "var(--yellow-400)"; tKnee.style.fontWeight = "800";
+                statusBox.innerHTML = `🦵 <strong>Ankle to Knee Deep (${currentFeet.toFixed(1)} ft)</strong> — Water is washing over the feet/shins. Able-bodied adults can wade through carefully. However, hidden roadway gutters, loose wires, and storm drain suction vectors present immediate underlying threats. Small sedans risk catalytic stalling.`;
+                statusBox.style.borderColor = "var(--yellow-400)";
+                statusBox.style.background = "rgba(234,179,8,0.03)";
+                container.style.filter = "drop-shadow(0 0 4px rgba(234,179,8,0.2))";
+              } 
+              else if (currentFeet <= 2.8) {
+                tWaist.style.color = "var(--orange-400)"; tWaist.style.fontWeight = "800";
+                statusBox.innerHTML = `👖 <strong>Thigh to Waist Deep (${currentFeet.toFixed(1)} ft)</strong> — Danger escalates. Hydrostatic drag pressure against legs makes balance heavily volatile. Standard structural sweeping speeds will drag a person down. Compact cars and standard SUVs will lose traction and float. Power grids should be shut down locally to avoid circuit leakage.`;
+                statusBox.style.borderColor = "var(--orange-400)";
+                statusBox.style.background = "rgba(249,115,22,0.04)";
+                container.style.filter = "drop-shadow(0 0 8px rgba(249,115,22,0.3))";
+              }
+              else if (currentFeet <= 4.0) {
+                tChest.style.color = "#ef4444"; tChest.style.fontWeight = "800";
+                statusBox.innerHTML = `🫁 <strong>Chest Deep (${currentFeet.toFixed(1)} ft)</strong> — High Threat Status! Water has breached the upper respiratory core layout. Wading is impossible; standard buoyancy paths will sweep human physics away completely. Flash velocity currents can collapse perimeter walls. Structural containment or second-tier high floor sheltering is mandatory.`;
+                statusBox.style.borderColor = "#ef4444";
+                statusBox.style.background = "rgba(239,68,68,0.05)";
+                container.style.filter = "drop-shadow(0 0 12px rgba(239,68,68,0.4))";
+              } 
+              else if (currentFeet <= 5.5) {
+                tHead.style.color = "#b91c1c"; tHead.style.fontWeight = "800";
+                statusBox.innerHTML = `😰 <strong>Chin to Head Line (${currentFeet.toFixed(1)} ft)</strong> — Extreme Survival Threat! Water level has covered the breathing airways. Total mechanical distress and high probability of immediate downing without buoyant flotation tracking equipment. Immediate deployment of localized emergency response protocols required. Move upwards to top-level structures.`;
+                statusBox.style.borderColor = "#b91c1c";
+                statusBox.style.background = "rgba(185,28,28,0.08)";
+                container.style.filter = "drop-shadow(0 0 16px #ef4444) brightness(0.7)";
+              }
+              else {
+                let overheadDistance = (currentFeet - 5.5).toFixed(1);
+                statusBox.innerHTML = `🚨 <strong>Completely Submerged (${currentFeet.toFixed(1)} ft)</strong> — Catastrophic Disaster Event. The water crest vector is standing <strong>\${overheadDistance} feet completely above the human model's head</strong>. High life-safety risk. Zero horizontal navigation options exist on the ground floor plane. Rooftops are the only viable structural safe havens.`;
+                statusBox.style.borderColor = "#7f1d1d";
+                statusBox.style.background = "rgba(127,29,29,0.14)";
+                container.style.filter = "brightness(0.3) blur(0.5px) drop-shadow(0 0 20px #7f1d1d)";
+              }
+            }
+
+            slider.addEventListener('input', (e) => {
+              updateSimulation(parseFloat(e.target.value));
+            });
+            updateSimulation(0);
+          });
+        </script>
+
+        <!-- ====================================================
+             TOOL 3 — EVACUATION CENTER FINDER
+             ==================================================== -->
+        <article class="tool-panel" id="tool-evac" aria-labelledby="tool3-title">
+          <div class="tool-header">
+            <div class="tool-num">03</div>
+            <div class="tool-title-group">
+              <div class="tool-eyebrow">Emergency Shelter</div>
+              <h2 class="tool-title" id="tool3-title">🏫 Evacuation Center Finder</h2>
+            </div>
+          </div>
+ 
+          <p style="font-size:0.92rem;color:var(--slate-400);margin-bottom:1.8rem;line-height:1.6;">
+            Find evacuation centers near you by selecting your district. Check capacity, occupancy, and status before you need to evacuate — not during. Know your shelter before disaster strikes.
+          </p>
+ 
+          <div class="evac-finder-top" role="search" aria-label="Evacuation center search" style="display:flex; gap:1rem; align-items:flex-end; flex-wrap:wrap; margin-bottom:1.5rem;">
+            <div class="form-group" style="flex:1; min-width:200px; display:flex; flex-direction:column; gap:0.4rem;">
+              <label class="form-label" for="evac-district" style="font-size:0.8rem; font-weight:700; text-transform:uppercase; color:var(--slate-400);">Select City</label>
+              
+              <select class="form-control" id="evac-district" aria-label="Select district or city to find evacuation centers" style="width:100%; padding:0.6rem; background:var(--slate-950); border:1px solid var(--slate-800); border-radius:var(--radius-sm); color:var(--white); font-weight:500;">
+                <option value="" style="background:#0f172a; color:#f8fafc;">— Choose a city —</option>
+                <option value="manila" style="background:#0f172a; color:#f8fafc;">Manila — Delpan Evacuation Center</option>
+                <option value="quezon-city" style="background:#0f172a; color:#f8fafc;">Quezon City — Payatas mapped evacuation center</option>
+                <option value="caloocan" style="background:#0f172a; color:#f8fafc;">Caloocan — Whispering Pines Evacuation Center</option>
+              </select>
+            </div>
+            <button class="btn btn-primary" id="evac-find-btn" aria-label="Search for evacuation centers" style="padding:0.7rem 1.5rem; font-weight:bold;">
+              🔍 Find Centers
+            </button>
+            <button class="btn btn-outline" id="evac-locate-btn" type="button" style="padding:0.7rem 1.5rem; font-weight:bold;">
+              📍 Use My Location
+            </button>
+          </div>
+
+          <p class="evac-location-status" id="evac-location-status" role="status" aria-live="polite">
+            Choose a city or allow location access to find the closest listed center.
+          </p>
+
+          <div class="evac-map-wrap">
+            <div class="evac-map-heading">
+              <div>
+                <strong>Metro Manila Street Map</strong>
+                <span>OpenStreetMap · only the selected center is pinned</span>
+              </div>
+              <span class="evac-map-legend"><i class="legend-user" id="evac-user-legend" hidden></i> <span id="evac-user-legend-label" hidden>You</span> <i class="legend-center"></i> Selected center</span>
+            </div>
+            <div class="evac-map" id="evac-map" role="region" aria-label="Interactive OpenStreetMap map of Metro Manila"></div>
+          </div>
+ 
+          <div class="evac-results" id="evac-results" role="region" aria-live="polite" aria-label="Evacuation center results">
+            <div class="evac-no-results" style="padding:1.5rem; text-align:center; color:var(--slate-500); border:1px dashed var(--slate-800); border-radius:var(--radius-md);">
+              Select a district above to find nearby evacuation centers.
+            </div>
+          </div>
+ 
+          <div style="margin-top:1.5rem;background:rgba(26,122,191,0.08);border:1px solid rgba(26,122,191,0.2);border-radius:var(--radius-md);padding:1rem;font-size:0.85rem;color:var(--slate-400);line-height:1.6;">
+            <strong style="color:var(--blue-300);">ℹ️ Data note:</strong> The street basemap and mapped features are from OpenStreetMap contributors (© ODbL). Center availability, capacity, and emergency designation are not confirmed by this demo; verify them with the relevant LGU before citing or relying on them. The dashed line is straight-line distance, not a safe walking or driving route. In an emergency, call 911.
+          </div>
+        </article>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            const districtSelect = document.getElementById("evac-district");
+            const findBtn = document.getElementById("evac-find-btn");
+            const locateBtn = document.getElementById("evac-locate-btn");
+            const resultsContainer = document.getElementById("evac-results");
+            const locationStatus = document.getElementById("evac-location-status");
+            if (!window.L) {
+              locationStatus.textContent = "The street map could not load. Check your internet connection and reload this page.";
+              findBtn.disabled = true;
+              locateBtn.disabled = true;
+              return;
+            }
+
+            const evacuationMap = L.map("evac-map", {
+              center: [14.62, 121.0],
+              zoom: 10,
+              scrollWheelZoom: false
+            });
+            evacuationMap.createPane("evacuationRoutePane").style.zIndex = 410;
+            evacuationMap.createPane("evacuationUserPane").style.zIndex = 420;
+            evacuationMap.createPane("evacuationCenterPane").style.zIndex = 430;
+            const evacuationMarkers = L.layerGroup().addTo(evacuationMap);
+            const baseMapTiles = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+              maxZoom: 19,
+              attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(evacuationMap);
+            baseMapTiles.on("tileerror", function () {
+              locationStatus.textContent = "Some street-map tiles could not load. Check your internet connection.";
+            });
+            const userLegend = document.getElementById("evac-user-legend");
+            const userLegendLabel = document.getElementById("evac-user-legend-label");
+
+            const majorEvacCenters = {
+              "manila": {
+                name: "Delpan Evacuation Center",
+                location: "Delpan Street, Barangay 276, San Nicolas, Manila",
+                source: "https://www.openstreetmap.org/way/458000531",
+                coordinates: { lat: 14.599009, lon: 120.9658305 }
+              },
+              "quezon-city": {
+                name: "Mapped evacuation center (Payatas)",
+                location: "Dominador Bardoquillo Street, Payatas, Quezon City",
+                source: "https://www.openstreetmap.org/way/813005835",
+                coordinates: { lat: 14.7196624, lon: 121.1083861 }
+              },
+              "caloocan": {
+                name: "Whispering Pines Evacuation Center",
+                location: "Royal Palm Street, Llano, Caloocan",
+                source: "https://www.openstreetmap.org/way/1090631615",
+                coordinates: { lat: 14.7278981, lon: 121.0122489 }
+              }
+            };
+
+            let userCoordinates = null;
+
+            function distanceKm(from, to) {
+              const radians = Math.PI / 180;
+              const latDifference = (to.lat - from.lat) * radians;
+              const lonDifference = (to.lon - from.lon) * radians;
+              const haversine = Math.sin(latDifference / 2) ** 2
+                + Math.cos(from.lat * radians) * Math.cos(to.lat * radians)
+                * Math.sin(lonDifference / 2) ** 2;
+              return 6371 * 2 * Math.atan2(Math.sqrt(haversine), Math.sqrt(1 - haversine));
+            }
+
+            function renderMap(center, centerName) {
+              evacuationMarkers.clearLayers();
+              if (userLegend) userLegend.hidden = !userCoordinates;
+              if (userLegendLabel) userLegendLabel.hidden = !userCoordinates;
+              if (!center) return;
+
+              const centerLatLng = [center.coordinates.lat, center.coordinates.lon];
+              if (userCoordinates) {
+                const userLatLng = [userCoordinates.lat, userCoordinates.lon];
+                L.polyline([userLatLng, centerLatLng], {
+                  color: "#2196f3",
+                  weight: 3,
+                  dashArray: "8 8",
+                  pane: "evacuationRoutePane"
+                }).addTo(evacuationMarkers);
+                L.circleMarker(userLatLng, {
+                  radius: 8,
+                  color: "#e3f2fd",
+                  weight: 2,
+                  fillColor: "#2196f3",
+                  fillOpacity: 1,
+                  pane: "evacuationUserPane"
+                }).bindTooltip("Your location").addTo(evacuationMarkers);
+              }
+
+              L.circleMarker(centerLatLng, {
+                radius: 9,
+                color: "#fff0e0",
+                weight: 2,
+                fillColor: "#f26c00",
+                fillOpacity: 1,
+                pane: "evacuationCenterPane"
+              }).bindTooltip(centerName).addTo(evacuationMarkers);
+            }
+
+            function showCenter(selectedValue) {
+              const center = majorEvacCenters[selectedValue];
+              if (!center) return;
+
+              const distanceText = userCoordinates
+                ? '<p style="margin:0.4rem 0;font-size:0.9rem;color:var(--slate-300);">📏 <strong>Straight-line distance:</strong> ' + distanceKm(userCoordinates, center.coordinates).toFixed(1) + ' km</p>'
+                : "";
+              renderMap(center, center.name);
+              resultsContainer.innerHTML = `
+                <div class="evac-card-result" style="background:var(--slate-800);border:1px solid var(--slate-700);border-left:5px solid var(--orange-500);border-radius:var(--radius-md);padding:1.5rem;margin-top:1rem;text-align:left;">
+                  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.5rem;gap:1rem;">
+                    <h3 style="color:var(--white);font-size:1.2rem;margin:0;font-family:var(--font-display);font-weight:800;">🏢 ${center.name}</h3>
+                    <span style="background:rgba(34,197,94,0.1);color:#22c55e;border:1px solid rgba(34,197,94,0.2);font-size:0.75rem;padding:0.2rem 0.6rem;border-radius:var(--radius-sm);font-weight:bold;flex-shrink:0;">SELECTED CENTER</span>
+                  </div>
+                  <p style="margin:0.4rem 0;font-size:0.9rem;color:var(--slate-300);line-height:1.4;">📍 <strong>Address:</strong> ${center.location}</p>
+                  ${distanceText}
+                  <p style="margin:0.7rem 0 0;font-size:0.82rem;color:var(--slate-400);">Mapped feature: <a href="${center.source}" target="_blank" rel="noopener noreferrer" style="color:var(--orange-400);text-decoration:underline;">view OpenStreetMap record ↗</a></p>
+                </div>`;
+            }
+
+            if (findBtn && districtSelect && resultsContainer) {
+              findBtn.addEventListener("click", function () {
+                const selectedValue = districtSelect.value;
+
+                if (!selectedValue) {
+                  resultsContainer.innerHTML = '<div class="evac-no-results">Please choose a district or city first.</div>';
+                  renderMap(null, "");
+                  return;
+                }
+
+                userCoordinates = null;
+                locationStatus.textContent = "Showing the selected city center. Use your location to find the nearest listed center.";
+                showCenter(selectedValue);
+              });
+            }
+
+            if (locateBtn && districtSelect && locationStatus) {
+              locateBtn.addEventListener("click", function () {
+                if (!navigator.geolocation) {
+                  locationStatus.textContent = "Location is not supported by this browser. Select your city instead.";
+                  return;
+                }
+
+                locateBtn.disabled = true;
+                locationStatus.textContent = "Requesting your location permission…";
+                navigator.geolocation.getCurrentPosition(function (position) {
+                  userCoordinates = {
+                    lat: position.coords.latitude,
+                    lon: position.coords.longitude
+                  };
+                    if (userCoordinates.lat < 14.32 || userCoordinates.lat > 14.82 || userCoordinates.lon < 120.88 || userCoordinates.lon > 121.2) {
+                      userCoordinates = null;
+                      locationStatus.textContent = "Your location is outside the current Metro Manila center coverage. Select a listed city to view its mapped center.";
+                      resultsContainer.innerHTML = '<div class="evac-no-results">No listed centers are available for your current area.</div>';
+                      renderMap(null, "");
+                      locateBtn.disabled = false;
+                      return;
+                    }
+                    const nearest = Object.keys(majorEvacCenters).reduce(function (closestKey, key) {
+                    return distanceKm(userCoordinates, majorEvacCenters[key].coordinates)
+                      < distanceKm(userCoordinates, majorEvacCenters[closestKey].coordinates) ? key : closestKey;
+                  });
+                  districtSelect.value = nearest;
+                  const center = majorEvacCenters[nearest];
+                  locationStatus.textContent = "Location found. Nearest listed center: " + center.name + ". Your location stays in this browser.";
+                  showCenter(nearest);
+                  locateBtn.disabled = false;
+                }, function (error) {
+                  const messages = {
+                    1: "Location permission was denied. Allow location access in your browser or select a city manually.",
+                    2: "Your location could not be determined. Try again or select a city manually.",
+                    3: "Location request timed out. Try again or select a city manually."
+                  };
+                  locationStatus.textContent = messages[error.code] || "Could not get your location. Select a city manually.";
+                  locateBtn.disabled = false;
+                }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 60000 });
+              });
+            }
+          });
+        </script>
+        
+        <!-- ====================================================
+             TOOL 4 — COMMUNITY SITUATION REPORT FEED
+             ==================================================== -->
+             
+<article class="tool-panel" id="tool-sitrep" aria-labelledby="tool3-title">
+          <div class="tool-header">
+            <div class="tool-num">03</div>
+            <div class="tool-title-group">
+              <div class="tool-eyebrow">ABC DEF Alerts</div>
+              <h2 class="tool-title" id="tool3-title">📢 Situation Reporter</h2>
+            </div>
+          </div>
+
+          <p style="font-size:0.92rem;color:var(--slate-400);margin-bottom:1.8rem;line-height:1.6;">
+            Help your neighbors stay safe. Share live hazard updates from your current location or monitor incoming incidents from surrounding communities.
+          </p>
+
+          <div style="display:grid; grid-template-columns: 1fr 1.2fr; gap:2rem; background:var(--slate-900); padding:1.5rem; border-radius:var(--radius-lg); border:1px solid var(--slate-800);" class="sitrep-layout">
+            
+            <form id="report-incident-form" style="display:flex; flex-direction:column; gap:1.2rem;" onsubmit="return false;">
+              <h3 style="font-size:1.1rem; font-weight:700; color:var(--white); border-bottom:1px solid var(--slate-700); padding-bottom:0.5rem; margin:0;">
+                ✏️ Submit a Live Report
+              </h3>
+
+              <div>
+                <label style="display:block; font-size:0.8rem; font-weight:700; text-transform:uppercase; color:var(--slate-400); margin-bottom:0.4rem;">Select Hazard Type</label>
+                <select id="report-type" class="form-control" style="width:100%;" required>
+                  <option value="🌊 Heavy Flooding">🌊 Heavy Flooding</option>
+                  <option value="⚡ Power Outage">⚡ Power Outage</option>
+                  <option value="🪵 Blocked Road / Debris">🪵 Blocked Road / Debris</option>
+                  <option value="🚨 Rescue Needed">🚨 Rescue Needed</option>
+                  <option value="🏠 Shelter Update">🏠 Evacuation Center Status</option>
+                </select>
+              </div>
+
+              <div>
+                <label style="display:block; font-size:0.8rem; font-weight:700; text-transform:uppercase; color:var(--slate-400); margin-bottom:0.4rem;">Location (Barangay / City)</label>
+                <input type="text" id="report-location" class="form-control" placeholder="e.g., Brgy. Tumana, Marikina City" style="width:100%;" required />
+              </div>
+
+              <div>
+                <label style="display:block; font-size:0.8rem; font-weight:700; text-transform:uppercase; color:var(--slate-400); margin-bottom:0.4rem;">Situation Description</label>
+                <textarea id="report-desc" class="form-control" rows="3" placeholder="Describe the current situation clearly..." style="width:100%; resize:none; font-size:0.9rem;" required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width:100%; font-weight:bold; text-transform:uppercase; padding:0.8rem; background:#ef4444; border-color:#ef4444;">
+                📢 Broadcast &amp; Call 911
+              </button>
+            </form>
+
+            <div style="display:flex; flex-direction:column;">
+              <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--slate-700); padding-bottom:0.5rem; margin-bottom:1rem;">
+                <h3 style="font-size:1.1rem; font-weight:700; color:var(--white); margin:0;">
+                  📻 Live Community Feed
+                </h3>
+                <span style="background:rgba(239,68,68,0.15); color:#ef4444; border:1px solid rgba(239,68,68,0.3); font-size:0.75rem; font-weight:bold; padding:2px 8px; border-radius:10px; display:flex; align-items:center; gap:4px;">
+                  <span style="width:6px; height:6px; background:#ef4444; border-radius:50%; display:inline-block; animation: pulse 1s infinite alternate;"></span> LIVE FEED
+                </span>
+              </div>
+
+              <div id="community-feed-container" style="display:flex; flex-direction:column; gap:1rem; max-height:330px; overflow-y:auto; padding-right:5px;">
+                
+                <div style="background:var(--slate-800); border:1px solid var(--slate-700); border-left:4px solid #06b6d4; padding:1rem; border-radius:var(--radius-md);">
+                  <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
+                    <strong style="color:var(--orange-400); font-size:0.9rem;">🌊 Heavy Flooding</strong>
+                    <span style="font-size:0.75rem; color:var(--slate-500); font-family:monospace;">Just Now</span>
+                  </div>
+                  <div style="font-size:0.8rem; font-weight:bold; color:var(--slate-300); margin-bottom:0.3rem;">📍 Espana Blvd. Manila, (near UST)</div>
+                  <p style="font-size:0.85rem; color:var(--slate-400); margin:0; line-height:1.4;">Water is chest deep near the school. Roads completely impassable for vehicles.</p>
+                </div>
+
+                <div style="background:var(--slate-800); border:1px solid var(--slate-700); border-left:4px solid #eab308; padding:1rem; border-radius:var(--radius-md);">
+                  <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
+                    <strong style="color:var(--orange-400); font-size:0.9rem;">🪵 Blocked Road / Debris</strong>
+                    <span style="font-size:0.75rem; color:var(--slate-500); font-family:monospace;">12 mins ago</span>
+                  </div>
+                  <div style="font-size:0.8rem; font-weight:bold; color:var(--slate-300); margin-bottom:0.3rem;">📍 Taft Ave, Manila (near DLSU)</div>
+                  <p style="font-size:0.85rem; color:var(--slate-400); margin:0; line-height:1.4;">Fallen tree branch blocking the outer southbound lane. Flowing traffic slowed down down to one lane.</p>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+        <style>
+          @keyframes pulse { from { opacity: 0.4; } to { opacity: 1; } }
+        </style>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('report-incident-form');
+            const feedContainer = document.getElementById('community-feed-container');
+
+            if (form && feedContainer) {
+              form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const type = document.getElementById('report-type').value;
+                const location = document.getElementById('report-location').value;
+                const desc = document.getElementById('report-desc').value;
+
+                const reportCard = document.createElement('div');
+                reportCard.style.cssText = "background:var(--slate-800); border:1px solid var(--slate-700); border-left:4px solid var(--orange-400); padding:1rem; border-radius:var(--radius-md);";
+                
+                if (type.includes("Rescue")) reportCard.style.borderLeftColor = "#ef4444";
+                if (type.includes("Flooding")) reportCard.style.borderLeftColor = "#06b6d4";
+
+                reportCard.innerHTML = `
+                  <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
+                    <strong style="color:var(--orange-400); font-size:0.9rem;">${type}</strong>
+                    <span style="font-size:0.75rem; color:var(--slate-500); font-family:monospace;">Just Now</span>
+                  </div>
+                  <div style="font-size:0.8rem; font-weight:bold; color:var(--slate-300); margin-bottom:0.3rem;">📍 ${location}</div>
+                  <p style="font-size:0.85rem; color:var(--slate-400); margin:0; line-height:1.4;">${desc}</p>
+                `;
+                feedContainer.insertBefore(reportCard, feedContainer.firstChild);
+
+                form.reset();
+
+                window.location.href = "tel:911";
+              });
+            }
+          });
+        </script>
+
+    <!-- ========================================================
+         SAFETY REMINDER SECTION
+         ======================================================== -->
+    <section style="background:var(--slate-800);border-top:1px solid var(--slate-700);padding:2.5rem 2rem;" aria-label="Emergency safety reminders">
+      <div style="max-width:1100px;margin:0 auto;">
+        <div style="font-family:var(--font-display);font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--orange-400);text-align:center;margin-bottom:1.5rem;">🚨 Always Remember During a Typhoon</div>
+        <div class="cards-4">
+          <div style="background:var(--slate-700);border-radius:var(--radius-md);padding:1.2rem;text-align:center;">
+            <div style="font-size:1.5rem;margin-bottom:0.5rem;">🏃</div>
+            <div style="font-family:var(--font-display);font-weight:700;font-size:0.9rem;color:var(--white);margin-bottom:0.3rem;">EVACUATE EARLY</div>
+            <div style="font-size:0.8rem;color:var(--slate-400);">Don't wait for mandatory orders — leave 12–24 hours before landfall</div>
+          </div>
+          <div style="background:var(--slate-700);border-radius:var(--radius-md);padding:1.2rem;text-align:center;">
+            <div style="font-size:1.5rem;margin-bottom:0.5rem;">🚫</div>
+            <div style="font-family:var(--font-display);font-weight:700;font-size:0.9rem;color:var(--white);margin-bottom:0.3rem;">NEVER CROSS FLOODS</div>
+            <div style="font-size:0.8rem;color:var(--slate-400);">30cm of fast-moving water can knock an adult off their feet</div>
+          </div>
+          <div style="background:var(--slate-700);border-radius:var(--radius-md);padding:1.2rem;text-align:center;">
+            <div style="font-size:1.5rem;margin-bottom:0.5rem;">📻</div>
+            <div style="font-family:var(--font-display);font-weight:700;font-size:0.9rem;color:var(--white);margin-bottom:0.3rem;">MONITOR PAGASA</div>
+            <div style="font-size:0.8rem;color:var(--slate-400);">Battery-powered radio is your lifeline when power and internet fail</div>
+          </div>
+          <div style="background:var(--slate-700);border-radius:var(--radius-md);padding:1.2rem;text-align:center;">
+            <div style="font-size:1.5rem;margin-bottom:0.5rem;">🤝</div>
+            <div style="font-family:var(--font-display);font-weight:700;font-size:0.9rem;color:var(--white);margin-bottom:0.3rem;">CHECK NEIGHBORS</div>
+            <div style="font-size:0.8rem;color:var(--slate-400);">Elderly, disabled, and children are most vulnerable — assist them first</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================
+       FOOTER
+       ======================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-logo">
+            <div class="footer-brand-icon">🌀</div>
+            <span class="footer-brand-name">Typhoon<span>Ready</span> PH</span>
+          </div>
+          <p class="footer-brand-desc">
+            A community-driven disaster preparedness platform for the Philippines. Built in alignment with SDG 13: Climate Action.
+          </p>
+        </div>
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <div class="footer-col-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About SDG 13</a>
+            <a href="features.html">Preparedness Tools</a>
+            <a href="contact.html">Emergency Contacts</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Resources</div>
+          <div class="footer-col-links">
+            <a href="features.html#tool-gobag">Go-Bag Checklist</a>
+            <a href="features.html#tool-flood">Flood Simulator</a>
+            <a href="features.html#tool-evac">Evacuation Finder</a>
+            <a href="features.html#tool-sitrep">Situation Reports</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Emergency Lines</div>
+          <div class="footer-col-links">
+            <a href="tel:8-1-1">NDRRMC: 8-1-1</a>
+            <a href="tel:160">BFP Hotline: 160</a>
+            <a href="tel:143">Red Cross: 143</a>
+            <a href="tel:911">Emergency: 911</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-bottom-text">© 2025 TyphoonReady PH. Built for community resilience. Educational use only.</span>
+        <span class="footer-sdg-badge">🌍 SDG 13 — Climate Action</span>
+      </div>
+    </div>
+    <div class="footer-bottom" style="display: flex; flex-direction: column; gap: 0.5rem; align-items: center; border-top: 1px solid var(--slate-800); padding-top: 1.5rem; margin-top: 1.5rem;">
+        <span class="footer-bottom-text" style="color: var(--slate-400); font-size: 0.85rem;">
+          © 2026 Developed &amp; Designed by <strong>JOHN ALLEN D. CORPUZ</strong>
+        </span>
+        <span style="font-size: 0.8rem; color: var(--slate-500); font-family: monospace;">
+          📧 <a href="mailto:john.dlssnts.02@gmail.com" style="color: var(--orange-400); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='var(--orange-400)'">john.dlssnts.02@gmail.com</a>
+        </span>
+      </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
